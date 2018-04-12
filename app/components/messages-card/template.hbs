@@ -1,0 +1,21 @@
+{{#paper-card as |card|}}
+  {{#card.title as |title|}}
+    {{#title.text as |text|}}
+      {{#text.headline}}Messages{{/text.headline}}
+    {{/title.text}}
+  {{/card.title}}
+  {{#card.content}}
+    {{#paper-list}}
+      {{#each messages as |message|}}
+        {{#paper-item class="md-3-line"}}
+          {{paper-icon "email" class="md-avatar-icon"}}
+          <div class="md-list-item-text">
+            <h3>{{moment-format message.attributes.dateTime 'DD/MM/YYYY HH:MM'}}</h3>
+            <h4>{{message.attributes.address}}</h4>
+            <p>{{message.attributes.content}}</p>
+          </div>
+        {{/paper-item}}
+      {{/each}}
+    {{/paper-list}}
+  {{/card.content}}
+{{/paper-card}}

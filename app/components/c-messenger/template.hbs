@@ -1,0 +1,26 @@
+{{#paper-card as |card|}}
+  {{#card.title as |title|}}
+    {{#title.text as |text|}}
+      {{#text.headline}}Messages{{/text.headline}}
+    {{/title.text}}
+  {{/card.title}}
+  {{#card.content}}
+    {{#paper-list}}
+      {{#each messenger.messages as |message|}}
+        {{#paper-item class="md-3-line"}}
+          {{paper-icon "email" class="md-avatar-icon"}}
+          <div class="md-list-item-text">
+            <h3>{{moment-format message.attributes.date-time 'DD/MM/YYYY HH:MM'}}</h3>
+            <h4>{{message.attributes.address}}</h4>
+            <p>{{message.attributes.content}}</p>
+          </div>
+        {{/paper-item}}
+      {{/each}}
+    {{/paper-list}}
+  {{/card.content}}
+  {{#card.actions}}
+    {{#paper-button click=(perform messenger.syncMessages)}}Sync{{/paper-button}}
+    {{!-- #paper-button click=(action "cancelSync") disabled=messenger.syncMessages.isIdle}}Cancel{{/paper-button --}}
+  {{/card.actions}}
+{{/paper-card}}
+{{log messenger.syncMessages}}
