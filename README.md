@@ -1,7 +1,8 @@
 # meetup-ember-concurrency
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+## EmberJS Paris - #5 • 18.04.2018
+
+[Slides available online](https://slides.com/gabrielcousin/meetup-ember-c)
 
 ## Prerequisites
 
