@@ -5,6 +5,10 @@
     {{/title.text}}
   {{/card.title}}
   {{#card.content}}
+    <ul class="task-info">
+      <li>isRunning: {{messenger.syncMessages.isRunning}}</li>
+      <li>performCount: {{messenger.syncMessages.performCount}}</li>
+    </ul>
     {{#paper-list}}
       {{#each messenger.messages as |message|}}
         {{#paper-item class="md-3-line"}}
@@ -23,4 +27,3 @@
     {{!-- #paper-button click=(action "cancelSync") disabled=messenger.syncMessages.isIdle}}Cancel{{/paper-button --}}
   {{/card.actions}}
 {{/paper-card}}
-{{log messenger.syncMessages}}

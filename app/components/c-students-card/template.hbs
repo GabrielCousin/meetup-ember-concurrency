@@ -5,6 +5,10 @@
     {{/title.text}}
   {{/card.title}}
   {{#card.content}}
+    <ul class="task-info">
+      <li>isRunning: {{students.isRunning}}</li>
+      <li>isError: {{students.isError}}</li>
+    </ul>
     {{#paper-list}}
       {{#each students.value as |student|}}
         {{#paper-item class="md-3-line"}}
@@ -19,8 +23,7 @@
   {{/card.content}}
 {{/paper-card}}
 
+
 {{!-- students.isError --}}
-{{!-- students.isRunning --}}
-{{!-- students.isIdle --}}
 {{!-- students.error.message --}}
 {{!-- paper-progress-circular diameter=40 --}}

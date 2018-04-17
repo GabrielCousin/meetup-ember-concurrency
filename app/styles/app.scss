@@ -1,4 +1,4 @@
-@import 'ember-paper';
+@import "ember-paper";
 
 body {
   background-color: #EEEEEE;
@@ -6,4 +6,8 @@ body {
 
 .index-img {
   margin-bottom: 30px;
+}
+
+.task-info {
+  display: none;
 }

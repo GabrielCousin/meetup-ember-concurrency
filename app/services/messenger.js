@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import { get, set } from '@ember/object';
-import { task } from 'ember-concurrency';
+import { task, timeout } from 'ember-concurrency';
 import $ from 'jquery';
 
 export default Service.extend({
@@ -10,6 +10,7 @@ export default Service.extend({
   },
 
   syncMessages: task(function * () {
+    yield timeout(1000);
     let res = yield new Promise(function (resolve, reject) {
       $.ajax({
         url: '/api/messages',
