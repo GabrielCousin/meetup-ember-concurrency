@@ -5,17 +5,18 @@ import { get } from '@ember/object';
 export default Route.extend({
   model() {
     return {
-      students: get(this, 'getRessource').perform('student')
+      students: get(this, 'getRessource').perform('student'),
+      books: get(this, 'getRessource').perform('book')
     };
   },
 
   getRessource: task(function * (modelName) {
     return yield this.store.findAll(modelName);
-  }).drop(),
+  }),
 
-  actions: {
-    onSync() {
-      this.refresh();
-    }
-  }
+  // actions: {
+  //   onSync() {
+  //     this.refresh();
+  //   }
+  // }
 });

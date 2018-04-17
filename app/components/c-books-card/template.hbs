@@ -1,0 +1,24 @@
+{{#paper-card as |card|}}
+  {{#card.title as |title|}}
+    {{#title.text as |text|}}
+      {{#text.headline}}Books{{/text.headline}}
+    {{/title.text}}
+  {{/card.title}}
+  {{#card.content}}
+    <ul class="task-info">
+      <li>isRunning: {{books.isRunning}}</li>
+      <li>isError: {{books.isError}}</li>
+    </ul>
+    {{#paper-list}}
+      {{#each books.value as |book|}}
+        {{#paper-item class="md-3-line"}}
+          <div class="md-list-item-text">
+            <h3>{{book.title}}</h3>
+            <h4>{{book.author}}</h4>
+            <p>Release: {{moment-format book.releaseDate 'DD/MM/YYYY'}}</p>
+          </div>
+        {{/paper-item}}
+      {{/each}}
+    {{/paper-list}}
+  {{/card.content}}
+{{/paper-card}}
