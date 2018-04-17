@@ -1,15 +1,13 @@
 import Route from '@ember/routing/route';
-import { all } from 'rsvp';
+import { hash } from 'rsvp';
 import $ from 'jquery';
 
 export default Route.extend({
   model() {
-    return all([
-      this.store.findAll('student'),
-      this.fetchMessages(),
-      this.store.findAll('book')
-    ]).then(function ([students, messages, books]) {
-      return { students, messages, books }
+    return hash({
+      students: this.store.findAll('student'),
+      books: this.store.findAll('book'),
+      messages: this.fetchMessages()
     });
   },
 
