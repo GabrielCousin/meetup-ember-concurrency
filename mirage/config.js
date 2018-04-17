@@ -5,9 +5,12 @@ export default function() {
   this.total = 1;
 
   this.get('/books'
-    , { timing: 500 }
+    , { timing: 1200 }
   );
+
   this.get('/students'
+    // uncomment to simulate a 503 error
+    //
     // , function () {
     //   return new Response(503, { some: 'header', 'Content-Type': 'application/json' }, {
     //     errors: [{
@@ -17,13 +20,14 @@ export default function() {
     //     }]
     //   });
     // }
-    , { timing: 1000 }
+    //
+    , { timing: 3000 }
   );
   this.get('/messages', ({ messages }) => {
     const msgs = messages.all();
     this.total += 1;
     return msgs.slice(0, this.total);
   }
-  , { timing: 2000 }
+  , { timing: 500 }
   );
 }
